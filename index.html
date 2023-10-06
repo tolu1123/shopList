@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="bg-gray-400">
+    <h1 class="text-center text-3xl font-bold py-10">My ShopCart List</h1>
+
+    <div class="flex item-center justify-center flex-col mx-auto max-w-sm">
+      <label class="text-lg" for="item">Enter a new item</label>
+      <input
+        type="text"
+        name="item"
+        id="item"
+        class="block w-full mt-2 bg-white placeholder:text-gray-200 text-sm px-4 py-3.5 rounded-xl shadow-sm border border-transparent focus:border-black focus:outline-none"
+      />
+      <button class="bg-blue-500 text-white py-3 rounded-xl mt-4">
+        Add Item
+      </button>
+    </div>
+
+    <ul class="mx-auto max-w-sm pt-6"></ul>
+
+    <script>
+      const list = document.querySelector('ul');
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', () => {
+        const myItem = input.value;
+        input.value = '';
+
+        const listItem = document.createElement('li');
+        const listText = document.createElement('span');
+        const listBtn = document.createElement('button');
+
+        listItem.appendChild(listText);
+        listText.textContent = myItem;
+        listItem.appendChild(listBtn);
+        listBtn.textContent = 'Delete';
+        list.appendChild(listItem);
+
+        listBtn.addEventListener('click', () => {
+          list.removeChild(listItem);
+        });
+
+        input.focus();
+      });
+    </script>
+  </body>
+</html>
