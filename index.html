@@ -6,6 +6,19 @@
     <title>Shopping List</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/index.css" />
+    <script defer src="script.js"></script>
+    <script>
+      tailwind.config = {
+        content: ["./index.html", "./script.js"],
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
   </head>
   <body class="bg-gray-400">
     <h1 class="text-center text-3xl font-bold py-10">My ShopCart List</h1>
@@ -24,32 +37,6 @@
     </div>
 
     <ul class="mx-auto max-w-sm pt-6"></ul>
-
-    <script>
-      const list = document.querySelector('ul');
-      const input = document.querySelector('input');
-      const button = document.querySelector('button');
-
-      button.addEventListener('click', () => {
-        const myItem = input.value;
-        input.value = '';
-
-        const listItem = document.createElement('li');
-        const listText = document.createElement('span');
-        const listBtn = document.createElement('button');
-
-        listItem.appendChild(listText);
-        listText.textContent = myItem;
-        listItem.appendChild(listBtn);
-        listBtn.textContent = 'Delete';
-        list.appendChild(listItem);
-
-        listBtn.addEventListener('click', () => {
-          list.removeChild(listItem);
-        });
-
-        input.focus();
-      });
-    </script>
+ 
   </body>
 </html>
