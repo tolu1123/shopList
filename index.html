@@ -4,39 +4,64 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping List</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/index.css" />
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
     <script defer src="script.js"></script>
-    <script>
-      tailwind.config = {
-        content: ["./index.html", "./script.js"],
-        theme: {
-          extend: {
-            colors: {
-              clifford: '#da373d',
-            }
-          }
-        }
-      }
-    </script>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
   </head>
-  <body class="bg-gray-400">
-    <h1 class="text-center text-3xl font-bold py-10">My ShopCart List</h1>
 
-    <div class="flex item-center justify-center flex-col mx-auto max-w-sm">
-      <label class="text-lg" for="item">Enter a new item</label>
-      <input
-        type="text"
-        name="item"
-        id="item"
-        class="block w-full mt-2 bg-white placeholder:text-gray-200 text-sm px-4 py-3.5 rounded-xl shadow-sm border border-transparent focus:border-black focus:outline-none"
-      />
-      <button class="bg-blue-500 text-white py-3 rounded-xl mt-4">
-        Add Item
-      </button>
+  <body class="bg-gray-400 p-5 w-full h-[100vh]">
+    <div class="main w-full h-full">
+      <div class="flex justify-center items-center gap-2">
+      <h1 class="text-left text-3xl font-bold py-10">My ShopCart List</h1>
+
+      <div class="counterDiv hidden relative flex items-center justify-center">
+        <span class="text-2xl"><i class="fa-light fa-cart-shopping"></i></span>
+        <span id="counter" class="inline-block min-w-[30px] min-h-[30px] rounded-full bg-red-500 text-white text-center leading-[200%] absolute left-6">21</span>
+      </div>
+      </div>
+
+      <form method="post" autocomplete="off" class="form w-full flex items-center justify-center flex-col mx-auto max-w-md">
+        <div class="w-full mb-2">
+        <label class="text-lg" for="item">Enter a new item</label>
+        <input
+          type="text"
+          name="item"
+          id="item"
+          class="block w-full mt-2 bg-white placeholder:text-gray-200 text-sm px-4 py-2 rounded-xl shadow-sm border border-transparent focus:border-black focus:outline-none"
+          required
+        />
+        </div>
+
+        <div class="w-full mb-2">
+        <label for="priority">Set priority level</label>
+        <select class="w-full px-4 py-2 rounded-xl" name="level" id="priority" required>
+          <option class="hidden" value="">Set priority</option>
+          <option value="1">High</option>
+          <option value="2">Medium</option>
+          <option value="3">Low</option>
+        </select>
+        </div>
+        <input type="submit" value="Add Item" class="button bg-blue-500 text-white py-2 w-full rounded-xl mt-4"></input>
+      </form>
+
+      <ul class="mx-auto max-w-sm mt-10 pt-6 w-full"></ul>
     </div>
-
-    <ul class="mx-auto max-w-sm pt-6"></ul>
  
+    <!--  The delete confirmation Box -->
+    <div class="deleteDialogue w-full h-full absolute inset-0 z-10 flex justify-center items-center hidden">
+		<div class="w-60 rounded-lg bg-white">
+			<div class="w-full flex items-center justify-center pt-5 pb-3">
+				<p class="text-center">Confirm delete?</p> 
+			</div>
+			<div class="w-full border-t-[1px] flex flex-row flex-nowrap">
+				<span class="cancelDelBtn w-1/2 h-full text-center py-3">Cancel</span>
+				<span class="deletePermBtn w-1/2 h-full border-l-[1px] py-3 text-center font-medium text-[#ff0000]">Delete</span>
+			</div>
+		</div>
+    </div>
   </body>
 </html>

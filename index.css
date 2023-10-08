@@ -1,3 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.counter {
+  animation: counter 1s linear infinite;
+}
+
+@keyframes counter {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+  /* 100% {
+    display: block;
+    opacity: 1; 
+  } */
+
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -7,18 +34,30 @@ ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px 10px;
   color: black;
   font-size: 16px;
-  border-radius: 5px;
   margin-bottom: 5px;
+}
+
+li > span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+li .metaDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
 }
 
 ul li button {
   background-color: #ff0000;
   color: #fff;
   border: none;
-  padding: 8px 20px;
+  padding: 4px 5px;
   border-radius: 6px;
   cursor: pointer;
 }
