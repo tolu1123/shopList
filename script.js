@@ -16,6 +16,9 @@ let deleteDialogue = document.querySelector('.deleteDialogue');
 let deletePermBtn = document.querySelector('.deletePermBtn');
 let cancelDelBtn = document.querySelector('.cancelDelBtn'); 
 
+// the element to delete
+let currentDeleteElem;
+
 // Adding shortcut for the input and the priority element
 input.addEventListener('input', (e) => {
     if(e.key === 'Enter' && priority.value === '') {
@@ -223,25 +226,10 @@ function updateList() {
         deleteBtn.addEventListener('click', () => {
             // display the delete confirmation box
             deleteDialogue.classList.remove('hidden');
+            
+            // get element to delete
+            currentDeleteElem = index;
         });
-
-        // Adding the eventListener to permanently delete
-        deletePermBtn.addEventListener('click', () => {
-            // remove the delete confirmation box from being displayed
-            deleteDialogue.classList.add('hidden');
-
-            // remove the item from the shopping Array
-            shoppingArray.splice(index, 1);
-
-            // Run the counterFunction
-            counterFunction();
-
-            // Run the saveToStorage function
-            saveToStorage();
-
-            // Run the update List
-            updateList();
-        })
 
         // THE CANCEL FUNCTIONALITY
         // Adding the eventListener to cancel the delete operation
@@ -272,3 +260,37 @@ function updateList() {
 }
 
 updateList();
+
+
+// delete function 
+function deleteItem(item) {
+    // remove the item from the shopping Array
+    shoppingArray.splice(item, 1);
+
+    // Run the counterFunction
+    counterFunction();
+
+    // Run the saveToStorage function
+    saveToStorage();
+
+    // Run the update List
+    updateList();
+}
+
+// Adding the eventListener to permanently delete
+deletePermBtn.addEventListener('click', () => {
+    // remove the delete confirmation box from being displayed
+    deleteDialogue.classList.add('hidden');
+
+    // remove the item from the shopping Array
+    shoppingArray.splice(currentDeleteElem, 1);
+
+    // Run the counterFunction
+    counterFunction();
+
+    // Run the saveToStorage function
+    saveToStorage();
+
+    // Run the update List
+    updateList();
+})

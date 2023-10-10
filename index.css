@@ -45,7 +45,11 @@ li > span {
   height: 10px;
   border-radius: 50%;
 }
-
+@media (max-width: 360px) {
+  li > input {
+    width: 140px;
+  }
+}
 li .metaDiv {
   display: flex;
   flex-direction: row;
