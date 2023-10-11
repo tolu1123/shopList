@@ -627,10 +627,6 @@ video {
   max-width: 28rem;
 }
 
-.max-w-sm {
-  max-width: 24rem;
-}
-
 .flex-row {
   flex-direction: row;
 }
@@ -759,6 +755,10 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -863,6 +863,20 @@ li > span {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  div.divInput {
+    width: 140px;
+  }
+}
+
+li > div:first-child {
+  background-color: red;
 }
 
 li .metaDiv {

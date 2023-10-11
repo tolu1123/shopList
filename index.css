@@ -46,9 +46,15 @@ li > span {
   border-radius: 50%;
 }
 @media (max-width: 360px) {
-  li > input {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  div.divInput {
     width: 140px;
   }
+}
+li > div:first-child {
+  background-color: red;
 }
 li .metaDiv {
   display: flex;

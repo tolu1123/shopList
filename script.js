@@ -157,6 +157,7 @@ function updateList() {
 
         // Create the div that houses the editable input
         const divInput = document.createElement('div');
+        divInput.classList.add('divInput');
         listItem.appendChild(divInput);
 
         //create the editable input
@@ -261,21 +262,6 @@ function updateList() {
 
 updateList();
 
-
-// delete function 
-function deleteItem(item) {
-    // remove the item from the shopping Array
-    shoppingArray.splice(item, 1);
-
-    // Run the counterFunction
-    counterFunction();
-
-    // Run the saveToStorage function
-    saveToStorage();
-
-    // Run the update List
-    updateList();
-}
 
 // Adding the eventListener to permanently delete
 deletePermBtn.addEventListener('click', () => {
